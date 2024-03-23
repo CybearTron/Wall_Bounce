@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://ruqng3at364b"]
+
+[ext_resource type="Script" path="res://Scripts/Player/player.gd" id="1_8w667"]
+[ext_resource type="Texture2D" uid="uid://bg6jfgxgjwiv3" path="res://icon.svg" id="2_i8b2f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iuwjs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_13jbj"]
+radius = 136.235
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_8w667")
+speed = 600
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_i8b2f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["player"]]
+scale = Vector2(6, 6)
+shape = SubResource("RectangleShape2D_iuwjs")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_13jbj")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -24.0
+offset_top = -104.0
+offset_right = 16.0
+offset_bottom = -81.0
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_exited" from="Hitbox" to="." method="_on_hitbox_body_exited"]

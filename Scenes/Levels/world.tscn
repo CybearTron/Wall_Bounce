@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://dp17mwh08prqe"]
+
+[ext_resource type="Script" path="res://Scripts/Levels/world.gd" id="1_lst0h"]
+[ext_resource type="Texture2D" uid="uid://db0vbw5w32uqp" path="res://Assets/Art/bg1.png" id="2_ao42r"]
+[ext_resource type="PackedScene" uid="uid://ruqng3at364b" path="res://Scenes/Player/player.tscn" id="2_aracm"]
+[ext_resource type="PackedScene" uid="uid://dicde4ukionk2" path="res://Scenes/Corpse/corpse.tscn" id="3_d68ij"]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_lst0h")
+
+[node name="Bg1" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_ao42r")
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="." instance=ExtResource("2_aracm")]
+
+[node name="Corpses" type="Node2D" parent="."]
+position = Vector2(-576, 336)
+
+[node name="Corpse" parent="Corpses" instance=ExtResource("3_d68ij")]
+position = Vector2(880, 208)
+
+[node name="Corpse2" parent="Corpses" instance=ExtResource("3_d68ij")]
+position = Vector2(432, 488)
+
+[node name="Corpse3" parent="Corpses" instance=ExtResource("3_d68ij")]
+position = Vector2(496, -24)
