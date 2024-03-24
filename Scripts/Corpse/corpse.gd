@@ -10,3 +10,8 @@ func _on_timer_timeout():
 
 func _physics_process(delta):
 	label.text = "Time: "+ str(timer.time_left) +"\nPotions: "+str(potion);
+	
+	if Inventory.upgrades.has("potion_stack"):
+		timer.one_shot = false;
+	else:
+		timer.one_shot = true;

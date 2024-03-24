@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://dp17mwh08prqe"]
+[gd_scene load_steps=10 format=3 uid="uid://dp17mwh08prqe"]
 
 [ext_resource type="Script" path="res://Scripts/Levels/world.gd" id="1_lst0h"]
 [ext_resource type="Texture2D" uid="uid://db0vbw5w32uqp" path="res://Assets/Art/bg1.png" id="2_ao42r"]
 [ext_resource type="PackedScene" uid="uid://ruqng3at364b" path="res://Scenes/Player/player.tscn" id="2_aracm"]
 [ext_resource type="PackedScene" uid="uid://dicde4ukionk2" path="res://Scenes/Corpse/corpse.tscn" id="3_d68ij"]
+[ext_resource type="PackedScene" uid="uid://dygu3j15217ab" path="res://Scenes/Utility/potion_shop.tscn" id="5_gbb6s"]
+[ext_resource type="PackedScene" uid="uid://dllfre0ff2tnq" path="res://Scenes/Utility/player_speed_shop.tscn" id="6_iohvy"]
+[ext_resource type="PackedScene" uid="uid://bwd2qotv0h0xj" path="res://Scenes/Utility/potion_quality_shop.tscn" id="7_h2r58"]
+[ext_resource type="PackedScene" uid="uid://bcf5plvixinh2" path="res://Scenes/Utility/potion_stack_shop.tscn" id="8_5axfx"]
+[ext_resource type="PackedScene" uid="uid://c2i2ogxm3sus2" path="res://Scenes/Utility/potion_shop_account_upgrade_shop.tscn" id="9_8bk7a"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_lst0h")
@@ -12,8 +17,6 @@ script = ExtResource("1_lst0h")
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_ao42r")
 metadata/_edit_lock_ = true
-
-[node name="Player" parent="." instance=ExtResource("2_aracm")]
 
 [node name="Corpses" type="Node2D" parent="."]
 position = Vector2(-576, 336)
@@ -26,3 +29,23 @@ position = Vector2(432, 488)
 
 [node name="Corpse3" parent="Corpses" instance=ExtResource("3_d68ij")]
 position = Vector2(496, -24)
+
+[node name="Shops" type="Node2D" parent="Corpses"]
+position = Vector2(576, -336)
+
+[node name="PotionShop" parent="Corpses/Shops" instance=ExtResource("5_gbb6s")]
+position = Vector2(79, -728)
+
+[node name="PlayerSpeedShop" parent="Corpses/Shops" instance=ExtResource("6_iohvy")]
+position = Vector2(983, -842)
+
+[node name="PotionQualityShop" parent="Corpses/Shops" instance=ExtResource("7_h2r58")]
+position = Vector2(-630, -771)
+
+[node name="PotionStackShop" parent="Corpses/Shops" instance=ExtResource("8_5axfx")]
+position = Vector2(-1224, -821)
+
+[node name="PotionShopAccountUpgradeShop" parent="Corpses/Shops" instance=ExtResource("9_8bk7a")]
+position = Vector2(1547, -791)
+
+[node name="Player" parent="." instance=ExtResource("2_aracm")]

@@ -8,14 +8,14 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_13jbj"]
 radius = 136.235
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_8w667")
 speed = 600
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_i8b2f")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["player"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(6, 6)
 shape = SubResource("RectangleShape2D_iuwjs")
 
@@ -33,6 +33,12 @@ offset_left = -24.0
 offset_top = -104.0
 offset_right = 16.0
 offset_bottom = -81.0
+
+[node name="Label2" type="Label" parent="."]
+offset_left = -24.0
+offset_top = 88.0
+offset_right = 16.0
+offset_bottom = 111.0
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="body_exited" from="Hitbox" to="." method="_on_hitbox_body_exited"]
