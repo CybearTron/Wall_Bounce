@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dp17mwh08prqe"]
+[gd_scene load_steps=11 format=3 uid="uid://dp17mwh08prqe"]
 
 [ext_resource type="Script" path="res://Scripts/Levels/world.gd" id="1_lst0h"]
 [ext_resource type="Texture2D" uid="uid://db0vbw5w32uqp" path="res://Assets/Art/bg1.png" id="2_ao42r"]
@@ -10,6 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://bcf5plvixinh2" path="res://Scenes/Utility/potion_stack_shop.tscn" id="8_5axfx"]
 [ext_resource type="PackedScene" uid="uid://c2i2ogxm3sus2" path="res://Scenes/Utility/potion_shop_account_upgrade_shop.tscn" id="9_8bk7a"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hjltg"]
+size = Vector2(434, 450)
+
 [node name="World" type="Node2D"]
 script = ExtResource("1_lst0h")
 
@@ -18,34 +21,264 @@ scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_ao42r")
 metadata/_edit_lock_ = true
 
+[node name="Shops" type="Node2D" parent="."]
+
+[node name="PotionShop" parent="Shops" instance=ExtResource("5_gbb6s")]
+position = Vector2(-608, -1288)
+
+[node name="PlayerSpeedShop" parent="Shops" instance=ExtResource("6_iohvy")]
+position = Vector2(3312, 1312)
+
+[node name="PotionQualityShop" parent="Shops" instance=ExtResource("7_h2r58")]
+position = Vector2(3304, -1896)
+
+[node name="PotionStackShop" parent="Shops" instance=ExtResource("8_5axfx")]
+position = Vector2(3304, -952)
+
+[node name="PotionShopAccountUpgradeShop" parent="Shops" instance=ExtResource("9_8bk7a")]
+position = Vector2(3352, 128)
+
 [node name="Corpses" type="Node2D" parent="."]
 position = Vector2(-576, 336)
 
+[node name="Corpse16" parent="Corpses" instance=ExtResource("3_d68ij")]
+position = Vector2(600, 1400)
+
+[node name="Corpse17" parent="Corpses" instance=ExtResource("3_d68ij")]
+position = Vector2(856, 1312)
+
+[node name="Corpse18" parent="Corpses" instance=ExtResource("3_d68ij")]
+position = Vector2(360, 1312)
+
+[node name="Corpse13" parent="Corpses" instance=ExtResource("3_d68ij")]
+position = Vector2(136, 1056)
+
+[node name="Corpse14" parent="Corpses" instance=ExtResource("3_d68ij")]
+position = Vector2(1240, 1256)
+
+[node name="Corpse15" parent="Corpses" instance=ExtResource("3_d68ij")]
+position = Vector2(736, 1096)
+
+[node name="Corpse10" parent="Corpses" instance=ExtResource("3_d68ij")]
+position = Vector2(-744, 1376)
+
+[node name="Corpse11" parent="Corpses" instance=ExtResource("3_d68ij")]
+position = Vector2(-32, 1376)
+
+[node name="Corpse12" parent="Corpses" instance=ExtResource("3_d68ij")]
+position = Vector2(-360, 1328)
+
+[node name="Corpse7" parent="Corpses" instance=ExtResource("3_d68ij")]
+position = Vector2(-976, 1216)
+
+[node name="Corpse8" parent="Corpses" instance=ExtResource("3_d68ij")]
+position = Vector2(-928, 896)
+
+[node name="Corpse9" parent="Corpses" instance=ExtResource("3_d68ij")]
+position = Vector2(-1416, 784)
+
+[node name="Corpse4" parent="Corpses" instance=ExtResource("3_d68ij")]
+position = Vector2(-1248, 1048)
+
+[node name="Corpse5" parent="Corpses" instance=ExtResource("3_d68ij")]
+position = Vector2(-248, 896)
+
+[node name="Corpse6" parent="Corpses" instance=ExtResource("3_d68ij")]
+position = Vector2(-568, 1064)
+
 [node name="Corpse" parent="Corpses" instance=ExtResource("3_d68ij")]
-position = Vector2(880, 208)
+position = Vector2(-1536, 992)
 
 [node name="Corpse2" parent="Corpses" instance=ExtResource("3_d68ij")]
-position = Vector2(432, 488)
+position = Vector2(-1488, 1376)
 
 [node name="Corpse3" parent="Corpses" instance=ExtResource("3_d68ij")]
-position = Vector2(496, -24)
+position = Vector2(1016, 848)
 
-[node name="Shops" type="Node2D" parent="Corpses"]
-position = Vector2(576, -336)
+[node name="Label" type="Node2D" parent="."]
 
-[node name="PotionShop" parent="Corpses/Shops" instance=ExtResource("5_gbb6s")]
-position = Vector2(79, -728)
+[node name="ColorRect" type="ColorRect" parent="Label"]
+offset_left = -3544.0
+offset_top = -1120.0
+offset_right = -2800.0
+offset_bottom = -504.0
+color = Color(0.27451, 0.27451, 0.27451, 1)
 
-[node name="PlayerSpeedShop" parent="Corpses/Shops" instance=ExtResource("6_iohvy")]
-position = Vector2(983, -842)
+[node name="Label" type="Label" parent="Label/ColorRect"]
+layout_mode = 0
+offset_left = 16.0
+offset_right = 380.0
+offset_bottom = 276.0
+scale = Vector2(2, 2)
+text = "To get out, you need 50000 money.
+Towards, the south you shall find the graveyard of the walls. You can get bouncy potions there.
+Sell them to the shop to the right. 
 
-[node name="PotionQualityShop" parent="Corpses/Shops" instance=ExtResource("7_h2r58")]
-position = Vector2(-630, -771)
+There will be some upgrade shops nearby. 
+That might help.
 
-[node name="PotionStackShop" parent="Corpses/Shops" instance=ExtResource("8_5axfx")]
-position = Vector2(-1224, -821)
+WASD or Arrow Keys to move.
+"
+autowrap_mode = 3
 
-[node name="PotionShopAccountUpgradeShop" parent="Corpses/Shops" instance=ExtResource("9_8bk7a")]
-position = Vector2(1547, -791)
+[node name="ColorRect2" type="ColorRect" parent="Label"]
+offset_left = -104.0
+offset_top = -1336.0
+offset_right = 664.0
+offset_bottom = -1000.0
+color = Color(0.27451, 0.27451, 0.27451, 1)
+
+[node name="Label" type="Label" parent="Label/ColorRect2"]
+layout_mode = 0
+offset_left = 40.0
+offset_right = 404.0
+offset_bottom = 160.0
+scale = Vector2(2, 2)
+text = "The Potion Shop: Sell your potions here. 
+
+I might not have enough monies so wait a while before I restock.
+
+Space or Enter to interact"
+autowrap_mode = 3
+
+[node name="ColorRect3" type="ColorRect" parent="Label"]
+offset_left = 2736.0
+offset_top = -1784.0
+offset_right = 3176.0
+offset_bottom = -1680.0
+color = Color(0.27451, 0.27451, 0.27451, 1)
+
+[node name="Label" type="Label" parent="Label/ColorRect3"]
+layout_mode = 0
+offset_left = 16.0
+offset_right = 244.0
+offset_bottom = 49.0
+scale = Vector2(2, 2)
+text = "Increase Potion Quality:
+Increases price
+"
+autowrap_mode = 3
+
+[node name="ColorRect4" type="ColorRect" parent="Label"]
+offset_left = 2704.0
+offset_top = -832.0
+offset_right = 3144.0
+offset_bottom = -728.0
+color = Color(0.27451, 0.27451, 0.27451, 1)
+
+[node name="Label" type="Label" parent="Label/ColorRect4"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 24.0
+offset_right = 416.0
+offset_bottom = 203.0
+scale = Vector2(2, 2)
+text = "Graves now stack potions
+"
+autowrap_mode = 3
+
+[node name="ColorRect5" type="ColorRect" parent="Label"]
+offset_left = 2744.0
+offset_top = 312.0
+offset_right = 3184.0
+offset_bottom = 416.0
+color = Color(0.27451, 0.27451, 0.27451, 1)
+
+[node name="Label" type="Label" parent="Label/ColorRect5"]
+layout_mode = 0
+offset_left = 72.0
+offset_right = 256.0
+offset_bottom = 49.0
+scale = Vector2(2, 2)
+text = "Increases amount carried by potion shop"
+autowrap_mode = 3
+
+[node name="ColorRect6" type="ColorRect" parent="Label"]
+offset_left = 2672.0
+offset_top = 1400.0
+offset_right = 3112.0
+offset_bottom = 1512.0
+color = Color(0.27451, 0.27451, 0.27451, 1)
+
+[node name="Label" type="Label" parent="Label/ColorRect6"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 24.0
+offset_right = 456.0
+offset_bottom = 203.0
+scale = Vector2(2, 2)
+text = "Increase Player Speed
+"
+autowrap_mode = 3
+
+[node name="ColorRect7" type="ColorRect" parent="Label"]
+offset_left = -672.0
+offset_top = 936.0
+offset_right = 72.0
+offset_bottom = 1200.0
+color = Color(0.27451, 0.27451, 0.27451, 1)
+
+[node name="Label" type="Label" parent="Label/ColorRect7"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 32.0
+offset_right = 416.0
+offset_bottom = 140.0
+scale = Vector2(2, 2)
+text = "Graveyard:
+
+Press space or enter to harvest bouncy potions. (Totally not their body mucus)"
+autowrap_mode = 3
+
+[node name="ColorRect8" type="ColorRect" parent="Label"]
+offset_left = -336.0
+offset_top = -208.0
+offset_right = 432.0
+offset_bottom = 128.0
+color = Color(0.27451, 0.27451, 0.27451, 1)
+
+[node name="Label" type="Label" parent="Label/ColorRect8"]
+layout_mode = 0
+offset_left = 40.0
+offset_right = 404.0
+offset_bottom = 160.0
+scale = Vector2(2, 2)
+text = "North: Potion Shop
+
+East: Upgrade Shops
+
+South: Graveyard
+
+South-East: End Portal"
+autowrap_mode = 3
+
+[node name="End" type="Area2D" parent="."]
+position = Vector2(1616, 1280)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="End"]
+position = Vector2(207, 215)
+shape = SubResource("RectangleShape2D_hjltg")
+
+[node name="ColorRect2" type="ColorRect" parent="End"]
+offset_right = 408.0
+offset_bottom = 424.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="End"]
+offset_left = 48.0
+offset_top = 72.0
+offset_right = 376.0
+offset_bottom = 384.0
+
+[node name="Label" type="Label" parent="End"]
+offset_left = 64.0
+offset_top = -64.0
+offset_right = 104.0
+offset_bottom = -41.0
+text = "Left:"
 
 [node name="Player" parent="." instance=ExtResource("2_aracm")]
+position = Vector2(-3496, -304)
+
+[connection signal="body_entered" from="End" to="." method="_on_end_body_entered"]
+[connection signal="body_exited" from="End" to="." method="_on_end_body_exited"]

@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://pi82sgnbdiw8"]
+
+[node name="End" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 13.0
+offset_bottom = 9.0
+scale = Vector2(100, 100)
+color = Color(0.87451, 0.321569, 0.172549, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 240.0
+offset_top = 128.0
+offset_right = 800.0
+offset_bottom = 496.0
+text = "Thanks for playing this weird ass game.
+
+
+It took me a little more than 3 hours to make.
+
+I am not proud of what I made haha!
+
+It is one of the worst games I have ever made...
+
+All art was made by me and all work was done by me.
+
+No music as I did not get enough time.
+
+Still, had a fucking lot of fun."

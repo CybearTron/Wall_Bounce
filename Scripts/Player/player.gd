@@ -7,6 +7,8 @@ var friction = 400;
 var harvestable = false;
 var corpse = null;
 
+var end = null;
+
 func _get_input(delta):
 	var input_direction =Input.get_vector("ui_left", "ui_right","ui_up","ui_down")
 	velocity = velocity.move_toward(speed * input_direction, acceleration);
@@ -18,11 +20,16 @@ func _get_input(delta):
 			$Hitbox.set_deferred("monitoring",false);
 			corpse = null;
 			$Hitbox.set_deferred("monitoring",true);
-
+	if input_direction == Vector2.ZERO:
+		$AnimationPlayer.play("Idle");
+	else:
+		$AnimationPlayer.play("Movement");
 
 func _physics_process(delta):
 	_get_input(delta);
 	move_and_slide();
+	
+
 	
 	$Label.text = "Potions: "+str(Inventory.potions);
 	$Label2.text = "Money: "+ str(Inventory.money);
@@ -45,3 +52,11 @@ func _on_hitbox_body_exited(body):
 	if body.is_in_group('corpse'):
 		harvestable = false;
 		corpse = null;
+
+
+func _on_hitbox_area_entered(area):
+	pass # Replace with function body.
+
+
+func _on_hitbox_area_exited(area):
+	pass # Replace with function body.

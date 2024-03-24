@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dimym8dchmga3"]
+
+[node name="Title Screen" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 13.0
+offset_bottom = 9.0
+scale = Vector2(100, 100)
+color = Color(0.87451, 0.321569, 0.172549, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 176.0
+offset_top = 128.0
+offset_right = 539.0
+offset_bottom = 333.0
+scale = Vector2(2, 2)
+text = "Thanks for playing this weird ass game.
+
+
+It took me a little more than 3 hours to make.
+
+I am not proud of what I made haha!
+
+It is one of the worst games I have ever made..."
+
+[node name="Button" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
